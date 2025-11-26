@@ -1,0 +1,58 @@
+========================================
+QUICK REFERENCE - DEPLOY TO GITHUB
+========================================
+
+✅ YOUR CODE IS READY AND COMMITTED!
+
+========================================
+STEP 1: CREATE GITHUB REPO
+========================================
+Go to: https://github.com/new
+Name: music-player
+Click: Create repository
+
+
+========================================
+STEP 2: PUSH TO GITHUB
+========================================
+Copy these commands and replace YOUR-USERNAME:
+
+git remote add origin https://github.com/YOUR-USERNAME/music-player.git
+git branch -M main
+git push -u origin main
+
+
+========================================
+STEP 3: DEPLOY TO RENDER (FREE)
+========================================
+1. Go to: https://render.com
+2. Sign up with GitHub
+3. New + → Web Service
+4. Select your repo
+5. Settings:
+   Build: pip install -r requirements.txt
+   Start: gunicorn app:app
+6. Create Web Service
+7. Done! 🎉
+
+
+========================================
+LATER: UPDATE YOUR APP
+========================================
+git add .
+git commit -m "your message"
+git push
+
+
+========================================
+HELP FILES
+========================================
+📖 STEPS_TO_DEPLOY.md - Detailed guide
+📖 DEPLOY_NOW.txt - Quick instructions
+📖 deploy_guide.md - Full documentation
+📖 README.md - Project info
+
+
+========================================
+START NOW! Go to: https://github.com/new
+========================================
