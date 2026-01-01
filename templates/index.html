@@ -15,16 +15,28 @@
             <i class="fa-brands fa-apple"></i> Music
         </div>
         <ul class="nav-menu">
-            <li class="nav-item active">
+            <li class="nav-item active" id="library-nav">
                 <i class="fa-solid fa-music"></i> Library
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="favorites-nav">
                 <i class="fa-solid fa-heart"></i> Favorites
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="recent-nav">
                 <i class="fa-solid fa-clock"></i> Recent
             </li>
         </ul>
+        
+        <div class="playlists-section">
+            <div class="section-header">
+                <h4>Playlists</h4>
+                <button id="refresh-playlists-btn" class="refresh-btn">
+                    <i class="fa-solid fa-refresh"></i>
+                </button>
+            </div>
+            <ul id="playlists-list" class="playlists-list">
+                <!-- Playlists will be loaded here -->
+            </ul>
+        </div>
     </div>
 
     <div class="main-content">
@@ -35,12 +47,14 @@
                     Title</button>
                 <button id="sort-date" class="btn-secondary"><i class="fa-regular fa-calendar"></i> Sort by
                     Date</button>
+                <button id="create-playlist-btn" class="btn-secondary"><i class="fa-solid fa-list"></i> Create Playlist</button>
                 <button id="add-song-btn" class="btn-primary"><i class="fa-solid fa-plus"></i> Add Song</button>
             </div>
         </div>
 
         <div class="playlist-container">
             <div class="playlist-header">
+                <div></div>
                 <div>Title</div>
                 <div>Artist</div>
                 <div>Date Added</div>
@@ -108,6 +122,91 @@
                 </div>
                 <button type="submit" class="submit-btn">Add Song</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Create Playlist Modal -->
+    <div id="create-playlist-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Playlist</h3>
+                <button id="close-playlist-modal" class="close-btn">&times;</button>
+            </div>
+            <form id="create-playlist-form">
+                <div class="form-group">
+                    <label for="playlist-name">Playlist Name</label>
+                    <input type="text" id="playlist-name" placeholder="Enter playlist name" required>
+                </div>
+                <div class="form-group">
+                    <label for="playlist-description">Description (Optional)</label>
+                    <input type="text" id="playlist-description" placeholder="Enter description">
+                </div>
+                <button type="submit" class="submit-btn">Create Playlist</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Playlist Management Modal -->
+    <div id="playlist-management-modal" class="modal hidden">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3 id="manage-playlist-title">Manage Playlist</h3>
+                <button id="close-manage-modal" class="close-btn">&times;</button>
+            </div>
+            <div class="playlist-management-content">
+                <div class="management-tabs">
+                    <button class="tab-btn active" data-tab="songs">Songs</button>
+                    <button class="tab-btn" data-tab="add-songs">Add Songs</button>
+                    <button class="tab-btn" data-tab="settings">Settings</button>
+                </div>
+                
+                <div class="tab-content">
+                    <!-- Songs Tab -->
+                    <div id="songs-tab" class="tab-pane active">
+                        <div class="songs-header">
+                            <h4>Songs in this playlist</h4>
+                            <div class="songs-controls">
+                                <button id="select-all-songs" class="btn-secondary">Select All</button>
+                                <button id="delete-selected-songs" class="btn-danger">Delete Selected</button>
+                            </div>
+                        </div>
+                        <ul id="manage-playlist-songs" class="manage-songs-list">
+                            <!-- Songs will be loaded here -->
+                        </ul>
+                    </div>
+                    
+                    <!-- Add Songs Tab -->
+                    <div id="add-songs-tab" class="tab-pane">
+                        <div class="add-songs-content">
+                            <h4>Add songs from other playlists</h4>
+                            <select id="source-playlist-select">
+                                <option value="">Select a playlist...</option>
+                            </select>
+                            <ul id="available-songs-list" class="available-songs-list">
+                                <!-- Available songs will be loaded here -->
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Settings Tab -->
+                    <div id="settings-tab" class="tab-pane">
+                        <div class="settings-content">
+                            <div class="form-group">
+                                <label for="edit-playlist-name">Playlist Name</label>
+                                <input type="text" id="edit-playlist-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-playlist-description">Description</label>
+                                <input type="text" id="edit-playlist-description">
+                            </div>
+                            <div class="settings-actions">
+                                <button id="save-playlist-settings" class="btn-primary">Save Changes</button>
+                                <button id="delete-playlist-btn" class="btn-danger">Delete Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

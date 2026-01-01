@@ -1,0 +1,109 @@
+{
+  "playlists": {
+    "4fb62a69-a9bc-4203-a4bb-e0a768a4b9e3": {
+      "name": "Library",
+      "description": "Your main music library",
+      "created_at": "2025-12-29T18:41:47.356721",
+      "songs": [
+        {
+          "id": "da08efbd-a3ab-4c8f-b8f2-203ef3df36dd",
+          "title": "Adi Alaye - MassTamilan",
+          "artist": "G. V. Prakash Kumar, Sean Roldan, Dhee - MassTamilan",
+          "file_path": "music/Adi_Alaye.mp3",
+          "added_at": "2025-11-26T22:19:11.357585",
+          "is_favorite": true,
+          "last_played": "2025-12-29T14:49:20.753632",
+          "play_count": 16
+        },
+        {
+          "id": "e3f780b0-b05c-4c25-a2db-be72111517d4",
+          "title": "7 Aum Arivu - Mun Andhi Video | Suriya, Shruti | Harris Jayaraj",
+          "artist": "Unknown Artist",
+          "file_path": "music/7_Aum_Arivu_-_Mun_Andhi_Video___Suriya__Shruti___Harris_JayarajMP3_160K.mp3",
+          "added_at": "2025-12-02T11:51:30.619868",
+          "is_favorite": false,
+          "last_played": "2025-12-29T18:38:43.663352",
+          "play_count": 10
+        },
+        {
+          "id": "965df5d4-081b-475e-931c-cf442d1d4e11",
+          "title": "Panimalare - MassTamilan.dev",
+          "artist": "Pradeep Kumar, Priyanka NK - MassTamilan.dev",
+          "file_path": "music/Panimalare-MassTamilan.dev.mp3",
+          "added_at": "2025-11-26T22:19:32.992638",
+          "is_favorite": false,
+          "last_played": "2025-12-28T19:21:21.627249",
+          "play_count": 5
+        },
+        {
+          "id": "f45af3b4-8f66-4bb7-a6d0-5dc9ecdc81c6",
+          "title": "0770499305",
+          "artist": "THE MUSIC TEC ",
+          "file_path": "music/03.Petromaxu_Lightethan_Venum.mp3",
+          "added_at": "2025-12-02T11:51:38.024382",
+          "is_favorite": false,
+          "last_played": "2025-12-29T14:49:31.558551",
+          "play_count": 4
+        },
+        {
+          "id": "1845790d-1308-494e-a38d-a6c0f1c3ac16",
+          "title": "Nenjin Ezhuth - MassTamilan",
+          "artist": "Adarsh Krishnan N, Vidya Lakshmi G - MassTamilan",
+          "file_path": "music/Nenjin_Ezhuth.mp3",
+          "added_at": "2025-12-11T10:59:20.854017",
+          "is_favorite": false,
+          "last_played": null,
+          "play_count": 0
+        },
+        {
+          "id": "81665abd-0959-4e12-9ae3-6789f3a0cd2b",
+          "title": "Oru Pere Varalaaru - MassTamilan.dev",
+          "artist": "MassTamilan.dev",
+          "file_path": "music/Oru-Pere-Varalaaru-MassTamilan.dev.mp3",
+          "added_at": "2025-12-28T19:12:07.289049",
+          "is_favorite": true,
+          "last_played": "2025-12-29T14:49:17.540315",
+          "play_count": 8
+        }
+      ]
+    },
+    "03a94a1e-9d6d-43d9-9429-dad800b9b541": {
+      "name": "asdas",
+      "description": "",
+      "created_at": "2025-12-29T18:57:02.085002",
+      "songs": [
+        {
+          "id": "965df5d4-081b-475e-931c-cf442d1d4e11",
+          "title": "Panimalare - MassTamilan.dev",
+          "artist": "Pradeep Kumar, Priyanka NK - MassTamilan.dev",
+          "file_path": "music/Panimalare-MassTamilan.dev.mp3",
+          "added_at": "2025-11-26T22:19:32.992638",
+          "is_favorite": false,
+          "last_played": "2025-12-28T19:21:21.627249",
+          "play_count": 5
+        },
+        {
+          "id": "da08efbd-a3ab-4c8f-b8f2-203ef3df36dd",
+          "title": "Adi Alaye - MassTamilan",
+          "artist": "G. V. Prakash Kumar, Sean Roldan, Dhee - MassTamilan",
+          "file_path": "music/Adi_Alaye.mp3",
+          "added_at": "2025-11-26T22:19:11.357585",
+          "is_favorite": true,
+          "last_played": "2025-12-29T14:49:20.753632",
+          "play_count": 16
+        },
+        {
+          "id": "e3f780b0-b05c-4c25-a2db-be72111517d4",
+          "title": "7 Aum Arivu - Mun Andhi Video | Suriya, Shruti | Harris Jayaraj",
+          "artist": "Unknown Artist",
+          "file_path": "music/7_Aum_Arivu_-_Mun_Andhi_Video___Suriya__Shruti___Harris_JayarajMP3_160K.mp3",
+          "added_at": "2025-12-02T11:51:30.619868",
+          "is_favorite": false,
+          "last_played": "2025-12-29T18:38:43.663352",
+          "play_count": 10
+        }
+      ]
+    }
+  },
+  "current_playlist_id": "4fb62a69-a9bc-4203-a4bb-e0a768a4b9e3"
+}
