@@ -37,6 +37,18 @@ class Playlist:
         self.tail = None
         self.current = None
         self.size = 0
+    
+    def is_empty(self):
+        return self.size == 0
+    
+    def contains_song(self, file_path):
+        """Check if a song with the same file path already exists in the playlist"""
+        current = self.head
+        while current:
+            if current.song.file_path == file_path:
+                return True
+            current = current.next
+        return False
 
     def add_song(self, song):
         new_node = Node(song)
