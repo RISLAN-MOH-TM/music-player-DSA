@@ -60,6 +60,34 @@ class TestPlaylistADT(unittest.TestCase):
         
         self.assertNotEqual(original_order, new_order)
         self.assertEqual(len(new_order), 10)
+    
+    def test_is_empty(self):
+        # Test empty playlist
+        self.assertTrue(self.playlist.is_empty())
+        
+        # Add a song and test
+        self.playlist.add_song(self.s1)
+        self.assertFalse(self.playlist.is_empty())
+        
+        # Remove the song and test
+        self.playlist.remove_song(self.s1.id)
+        self.assertTrue(self.playlist.is_empty())
+    
+    def test_contains_song(self):
+        # Test empty playlist
+        self.assertFalse(self.playlist.contains_song("path1"))
+        
+        # Add a song and test
+        self.playlist.add_song(self.s1)
+        self.assertTrue(self.playlist.contains_song("path1"))
+        
+        # Test with different path
+        self.assertFalse(self.playlist.contains_song("path2"))
+        
+        # Add another song and test
+        self.playlist.add_song(self.s2)
+        self.assertTrue(self.playlist.contains_song("path1"))
+        self.assertTrue(self.playlist.contains_song("path2"))
 
 if __name__ == '__main__':
     unittest.main()
