@@ -199,6 +199,9 @@ def get_playlist():
 def get_current():
     current_playlist = get_current_playlist()
     if current_playlist:
+        # Check if playlist is empty
+        if current_playlist.is_empty():
+            return jsonify({"success": False, "message": "Playlist is empty"}), 400
         song = current_playlist.get_current_song()
         return jsonify(song.to_dict() if song else None)
     return jsonify(None)
@@ -226,6 +229,10 @@ def add_song():
         
         # Store relative path for frontend access
         relative_path = f"music/{filename}"
+        
+        # Check if song already exists in the playlist
+        if current_playlist.contains_song(relative_path):
+            return jsonify({"success": False, "message": "Song already exists in playlist"}), 400
         
         # Extract metadata if not provided
         if not title or not artist:
@@ -258,13 +265,20 @@ def remove_song(song_id):
     success = current_playlist.remove_song(song_id)
     if success:
         save_playlists()  # Save after removing
+    else:
+        # Provide feedback when removing a non-existing song
+        return jsonify({"success": False, "message": "Song not found in playlist"}), 400
     return jsonify({"success": success})
 
 @app.route('/api/next', methods=['POST'])
 def next_song():
     current_playlist = get_current_playlist()
     if not current_playlist:
-        return jsonify(None)
+        return jsonify({"success": False, "message": "No active playlist"}), 400
+    
+    # Check if playlist is empty
+    if current_playlist.is_empty():
+        return jsonify({"success": False, "message": "Playlist is empty"}), 400
     
     song = current_playlist.next_song()
     return jsonify(song.to_dict() if song else None)
@@ -273,7 +287,11 @@ def next_song():
 def prev_song():
     current_playlist = get_current_playlist()
     if not current_playlist:
-        return jsonify(None)
+        return jsonify({"success": False, "message": "No active playlist"}), 400
+    
+    # Check if playlist is empty
+    if current_playlist.is_empty():
+        return jsonify({"success": False, "message": "Playlist is empty"}), 400
     
     song = current_playlist.prev_song()
     return jsonify(song.to_dict() if song else None)
@@ -283,6 +301,10 @@ def shuffle_playlist():
     current_playlist = get_current_playlist()
     if not current_playlist:
         return jsonify({"success": False, "message": "No active playlist"}), 400
+    
+    # Check if playlist is empty
+    if current_playlist.is_empty():
+        return jsonify({"success": False, "message": "Cannot shuffle empty playlist"}), 400
     
     current_playlist.shuffle()
     save_playlists()  # Save after shuffling
@@ -294,6 +316,10 @@ def sort_by_title():
     if not current_playlist:
         return jsonify({"success": False, "message": "No active playlist"}), 400
     
+    # Check if playlist is empty
+    if current_playlist.is_empty():
+        return jsonify({"success": False, "message": "Cannot sort empty playlist"}), 400
+    
     current_playlist.sort_by_title()
     save_playlists()  # Save after sorting
     return jsonify({"success": True})
@@ -303,6 +329,10 @@ def sort_by_date():
     current_playlist = get_current_playlist()
     if not current_playlist:
         return jsonify({"success": False, "message": "No active playlist"}), 400
+    
+    # Check if playlist is empty
+    if current_playlist.is_empty():
+        return jsonify({"success": False, "message": "Cannot sort empty playlist"}), 400
     
     current_playlist.sort_by_date()
     save_playlists()  # Save after sorting
@@ -325,6 +355,9 @@ def toggle_favorite(song_id):
     success = current_playlist.toggle_favorite(song_id)
     if success:
         save_playlists()  # Save after toggling favorite
+    else:
+        # Provide feedback when toggling favorite on a non-existing song
+        return jsonify({"success": False, "message": "Song not found in playlist"}), 400
     return jsonify({"success": success})
 
 @app.route('/api/recent', methods=['GET'])
@@ -344,6 +377,9 @@ def mark_played(song_id):
     success = current_playlist.mark_as_played(song_id)
     if success:
         save_playlists()  # Save after marking as played
+    else:
+        # Provide feedback when marking a non-existing song as played
+        return jsonify({"success": False, "message": "Song not found in playlist"}), 400
     return jsonify({"success": success})
 
 @app.route('/api/reorder', methods=['POST'])
@@ -362,6 +398,9 @@ def reorder_songs():
     success = current_playlist.move_song(song_id, new_position)
     if success:
         save_playlists()
+    else:
+        # Provide feedback when moving a non-existing song
+        return jsonify({"success": False, "message": "Song not found in playlist"}), 400
     return jsonify({"success": success})
 
 @app.route('/api/playlists', methods=['POST'])
