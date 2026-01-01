@@ -35,6 +35,18 @@ class TestSorting(unittest.TestCase):
         # Verify links
         self.assertEqual(self.playlist.head.song.title, "Mango")
         self.assertEqual(self.playlist.tail.song.title, "Zebra")
+    
+    def test_sort_empty_playlist(self):
+        # Create an empty playlist
+        empty_playlist = Playlist()
+        
+        # Sorting an empty playlist should not cause errors
+        empty_playlist.sort_by_title()
+        empty_playlist.sort_by_date()
+        
+        # The playlist should remain empty
+        self.assertTrue(empty_playlist.is_empty())
+        self.assertEqual(len(empty_playlist.get_all_songs()), 0)
 
 if __name__ == '__main__':
     unittest.main()
